@@ -44,11 +44,11 @@ export const SettingsStack = StackNavigator({
 });
 
 export const Root = StackNavigator({
-  Tabs: {
-    screen: Tabs,
-  },
   Settings: {
     screen: SettingsStack,
+  },
+  Tabs: {
+    screen: Tabs,
   },
 }, {
   mode: 'modal',
