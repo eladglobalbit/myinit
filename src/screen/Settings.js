@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import { View, Text, Button ,TouchableOpacity} from 'react-native';
 import { connect } from "react-redux";
-import {LoginManager} from 'react-native-fbsdk';
+import { LoginManager } from 'react-native-fbsdk';
 import { tryAuth } from "../store/actions/index";
 import  {GoogleSignin} from 'react-native-google-signin'
 class Settings extends Component{
@@ -40,17 +40,20 @@ class Settings extends Component{
       }
 
       fbAuth() {
-        LoginManager.logInWithReadPermissions(['public_profile']).then(
-          function (result) {
+        LoginManager.logInWithReadPermissions(["public_profile"]).then(
+          function(result) {
+            console.log(result)
             if (result.isCancelled) {
-              console.log('Login was cancelled');
+              console.log("Login cancelled");
             } else {
-              console.log('Login was successful with permissions: '
-                + result.grantedPermissions.toString());
+              console.log(
+                "Login success with permissions: " +
+                  result.grantedPermissions.toString()
+              );
             }
           },
-          function (error) {
-            console.log('Login failed with error: ' + error);
+          function(error) {
+            console.log("Login fail with error: " + error);
           }
         );
       }

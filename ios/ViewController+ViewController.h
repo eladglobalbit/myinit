@@ -9,9 +9,18 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+  loginButton.readPermissions = @[@"public_profile", @"email"];
   // Optional: Place the button in the center of your view.
   loginButton.center = self.view.center;
   [self.view addSubview:loginButton];
+}
+
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  if ([FBSDKAccessToken currentAccessToken]) {
+    // User is logged in, do work such as go to next view controller.
+  }
 }
 
 @end
